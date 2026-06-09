@@ -3,56 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دارويش جيمز</title>
+<title>Playnix</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    font-family: Arial,sans-serif;
-    background:#111;
-    color:white;
-    text-align:center;
-    margin:0;
+background:#0f172a;
+color:white;
 }
 
 header{
-    background:#222;
-    padding:20px;
+padding:20px;
+text-align:center;
+background:#111827;
+border-bottom:2px solid #2563eb;
 }
 
-h1{
-    margin:0;
+.logo{
+font-size:40px;
+font-weight:bold;
 }
 
-.game-container{
-    margin-top:30px;
+.hero{
+text-align:center;
+padding:60px 20px;
 }
 
-.board{
-    display:grid;
-    grid-template-columns:repeat(3,100px);
-    gap:5px;
-    justify-content:center;
-    margin:20px auto;
+.hero h1{
+font-size:50px;
+margin-bottom:15px;
 }
 
-.cell{
-    width:100px;
-    height:100px;
-    background:#333;
-    font-size:40px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
+.hero p{
+font-size:20px;
+color:#cbd5e1;
 }
 
-button{
-    padding:10px 20px;
-    border:none;
-    background:#00aaff;
-    color:white;
-    border-radius:5px;
-    cursor:pointer;
+.games{
+padding:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.icon{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.play-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#111827;
 }
 </style>
 </head>
@@ -60,95 +91,49 @@ button{
 <body>
 
 <header>
-<h1>🎮 Darwish Games</h1>
-<p>موقع ألعاب متصفح مجاني</p>
+<div class="logo">🎮 Playnix</div>
 </header>
 
-<div class="game-container">
-<h2>لعبة XO</h2>
+<section class="hero">
+<h1>مرحبًا بك في Playnix</h1>
+<p>العب ألعاب المتصفح مجانًا وبدون تحميل</p>
+</section>
 
-<div class="board" id="board">
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"></div>
+<section class="games">
+
+<div class="card">
+<div class="icon">❌⭕</div>
+<h2>XO</h2>
+<p>لعبة الذكاء الشهيرة</p>
+<a class="play-btn" href="#">قريبًا</a>
 </div>
 
-<h3 id="status">دور اللاعب X</h3>
-
-<button onclick="restartGame()">إعادة اللعب</button>
+<div class="card">
+<div class="icon">🐍</div>
+<h2>Snake</h2>
+<p>اجمع النقاط وكبر الثعبان</p>
+<a class="play-btn" href="#">قريبًا</a>
 </div>
 
-<script>
-const cells = document.querySelectorAll('.cell');
-const statusText = document.getElementById('status');
+<div class="card">
+<div class="icon">🚗</div>
+<h2>Racing</h2>
+<p>تسابق نحو المركز الأول</p>
+<a class="play-btn" href="#">قريبًا</a>
+</div>
 
-let currentPlayer = 'X';
-let gameActive = true;
+<div class="card">
+<div class="icon">🧩</div>
+<h2>Puzzle</h2>
+<p>اختبر ذكاءك</p>
+<a class="play-btn" href="#">قريبًا</a>
+</div>
 
-const wins = [
-[0,1,2],[3,4,5],[6,7,8],
-[0,3,6],[1,4,7],[2,5,8],
-[0,4,8],[2,4,6]
-];
+</section>
 
-cells.forEach((cell,index)=>{
-cell.addEventListener('click',()=>{
-if(cell.textContent || !gameActive) return;
-
-cell.textContent=currentPlayer;
-
-checkWinner();
-
-currentPlayer=currentPlayer==='X'?'O':'X';
-
-if(gameActive)
-statusText.textContent=`دور اللاعب ${currentPlayer}`;
-});
-});
-
-function checkWinner(){
-
-for(let win of wins){
-
-const [a,b,c]=win;
-
-if(
-cells[a].textContent &&
-cells[a].textContent===cells[b].textContent &&
-cells[b].textContent===cells[c].textContent
-){
-statusText.textContent=
-`الفائز هو ${cells[a].textContent}`;
-gameActive=false;
-return;
-}
-}
-
-let draw=true;
-
-cells.forEach(cell=>{
-if(cell.textContent==="") draw=false;
-});
-
-if(draw){
-statusText.textContent="تعادل!";
-gameActive=false;
-}
-}
-
-function restartGame(){
-cells.forEach(cell=>cell.textContent="");
-currentPlayer='X';
-gameActive=true;
-statusText.textContent='دور اللاعب X';
-}
-</script>
+<footer>
+© 2026 Playnix - All Rights Reserved
+</footer>
 
 </body>
 </html>
