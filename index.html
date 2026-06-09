@@ -14,25 +14,27 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#0f172a;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#312e81);
 color:white;
+min-height:100vh;
 }
 
 header{
 padding:20px;
 text-align:center;
-background:#111827;
-border-bottom:2px solid #2563eb;
+background:rgba(17,24,39,.9);
+border-bottom:2px solid #3b82f6;
 }
 
 .logo{
-font-size:40px;
+font-size:55px;
 font-weight:bold;
+text-shadow:0 0 20px #3b82f6;
 }
 
 .hero{
 text-align:center;
-padding:60px 20px;
+padding:70px 20px;
 }
 
 .hero h1{
@@ -42,7 +44,16 @@ margin-bottom:15px;
 
 .hero p{
 font-size:20px;
-color:#cbd5e1;
+color:#e2e8f0;
+margin-bottom:15px;
+}
+
+.players{
+font-size:18px;
+background:rgba(255,255,255,.1);
+display:inline-block;
+padding:10px 20px;
+border-radius:20px;
 }
 
 .games{
@@ -53,20 +64,29 @@ gap:20px;
 }
 
 .card{
-background:#1e293b;
+background:rgba(30,41,59,.9);
 padding:20px;
-border-radius:15px;
+border-radius:18px;
 text-align:center;
 transition:.3s;
+box-shadow:0 0 15px rgba(0,0,0,.3);
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
 }
 
 .icon{
 font-size:60px;
 margin-bottom:10px;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
+.card p{
+color:#cbd5e1;
 }
 
 .play-btn{
@@ -77,13 +97,18 @@ background:#2563eb;
 color:white;
 text-decoration:none;
 border-radius:8px;
+font-weight:bold;
+}
+
+.play-btn:hover{
+background:#1d4ed8;
 }
 
 footer{
 text-align:center;
-padding:20px;
+padding:25px;
 margin-top:40px;
-background:#111827;
+background:rgba(17,24,39,.9);
 }
 </style>
 </head>
@@ -97,6 +122,7 @@ background:#111827;
 <section class="hero">
 <h1>مرحبًا بك في Playnix</h1>
 <p>العب ألعاب المتصفح مجانًا وبدون تحميل</p>
+<div class="players">👥 أكثر من 10,000 لاعب يستمتعون بألعاب Playnix</div>
 </section>
 
 <section class="games">
@@ -105,7 +131,7 @@ background:#111827;
 <div class="icon">❌⭕</div>
 <h2>XO</h2>
 <p>لعبة الذكاء الشهيرة</p>
-<a class="play-btn" href="#">قريبًا</a>
+<a class="play-btn" href="#">العب الآن</a>
 </div>
 
 <div class="card">
@@ -129,10 +155,24 @@ background:#111827;
 <a class="play-btn" href="#">قريبًا</a>
 </div>
 
+<div class="card">
+<div class="icon">⚽</div>
+<h2>Football</h2>
+<p>سجل الأهداف وتحدى أصدقاءك</p>
+<a class="play-btn" href="#">قريبًا</a>
+</div>
+
+<div class="card">
+<div class="icon">🎯</div>
+<h2>Arcade</h2>
+<p>ألعاب ممتعة وسريعة</p>
+<a class="play-btn" href="#">قريبًا</a>
+</div>
+
 </section>
 
 <footer>
-© 2026 Playnix - All Rights Reserved
+🎮 Playnix | أفضل ألعاب المتصفح المجانية 2026
 </footer>
 
 </body>
